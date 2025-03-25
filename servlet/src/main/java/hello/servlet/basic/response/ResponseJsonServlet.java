@@ -12,19 +12,21 @@ import java.io.IOException;
 
 @WebServlet(name = "responseJsonServlet", urlPatterns = "/response-json")
 public class ResponseJsonServlet extends HttpServlet {
+
     private ObjectMapper objectMapper = new ObjectMapper();
+
     @Override
-    protected void service(HttpServletRequest request, HttpServletResponse
-            response)
-            throws ServletException, IOException {
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Content-Type: application/json
         response.setHeader("content-type", "application/json");
         response.setCharacterEncoding("utf-8");
+
         HelloData data = new HelloData();
         data.setUsername("kim");
         data.setAge(20);
+
         //{"username":"kim","age":20}
-        String result = objectMapper.writeValueAsString(data);
+        String result = objectMapper.writeValueAsString(data); //Java 객체 → JSON 문자열 변환
         response.getWriter().write(result);
     }
 }
