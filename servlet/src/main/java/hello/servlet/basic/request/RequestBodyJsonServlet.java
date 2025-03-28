@@ -27,11 +27,9 @@ public class RequestBodyJsonServlet extends HttpServlet {
             response)
             throws ServletException, IOException {
         ServletInputStream inputStream = request.getInputStream();
-        String messageBody = StreamUtils.copyToString(inputStream,
-                StandardCharsets.UTF_8);
+        String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8); //요청 본문을 문자열로 변환
         System.out.println("messageBody = " + messageBody);
-        HelloData helloData = objectMapper.readValue(messageBody,
-                HelloData.class);
+        HelloData helloData = objectMapper.readValue(messageBody, HelloData.class); // JSON 문자열 -> 객체로 반환
         System.out.println("helloData.username = " + helloData.getUsername());
         System.out.println("helloData.age = " + helloData.getAge());
         response.getWriter().write("ok");
