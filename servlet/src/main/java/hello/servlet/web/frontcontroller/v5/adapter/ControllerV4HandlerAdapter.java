@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+// 핸들러 직접 만들기
 public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
     @Override
