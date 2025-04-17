@@ -22,7 +22,7 @@ public class SpringMemberControllerV2 {
 
     @RequestMapping("/new-form")
     public ModelAndView newForm() {
-        return new ModelAndView("new-form");
+        return new ModelAndView("new-form"); //ModelAndView로 뷰 네임 설정해서 해당 뷰로 전달
     }
 
     @RequestMapping("/save")
