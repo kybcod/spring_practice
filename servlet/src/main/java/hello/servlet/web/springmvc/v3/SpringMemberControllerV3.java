@@ -26,7 +26,7 @@ public class SpringMemberControllerV3 {
 
     @GetMapping("/new-form")
     public String newForm() {
-        return "new-form";
+        return "new-form"; // ModelAndView를 String으로 반환
     }
 
     @PostMapping("/save")
