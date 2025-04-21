@@ -16,3 +16,4 @@ public class ModelView {
         this.viewName = viewName;
     }
 }
+/* 모델 뷰에 담아서 화면에 보여질 수 있도록*/
