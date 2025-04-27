@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.project1.service.MemberServiceTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-02-25T05:06:00" hostname="YEYE" time="0.08">
+  <properties/>
+  <testcase name="findOne()" classname="com.example.project1.service.MemberServiceTest" time="0.017"/>
+  <testcase name="중복_회원_에러()" classname="com.example.project1.service.MemberServiceTest" time="0.058"/>
+  <testcase name="회원가입()" classname="com.example.project1.service.MemberServiceTest" time="0.0"/>
+  <testcase name="findMembers()" classname="com.example.project1.service.MemberServiceTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
