@@ -25,6 +25,7 @@ public class ResponseBodyController {
 
     /**
      * HttpEntity, ResponseEntity(Http Status 추가)
+     * HTTP 응답의 바디에 직접 데이터를 쓰는 방식은 메시지 컨버터
      * @return
      */
     @GetMapping("/response-body-string-v2")
