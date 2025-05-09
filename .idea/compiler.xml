@@ -14,6 +14,7 @@
       <module name="hello.item-service" target="17" />
       <module name="hello.item-service.main" target="17" />
       <module name="hello.item-service.test" target="17" />
+      <module name="item-service" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>
