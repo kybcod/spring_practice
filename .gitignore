@@ -1,0 +1,32 @@
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
+# 로그 파일
+*.log
+
+# 환경 설정
+*.env
+.env.*
+
+# 기타
+*.class
+*.jar
+*.war
+*.zip
+
+# VSCode (사용 시)
+.vscode/
+
+# 테스트 리포트 (생성될 경우)
+test-output/
