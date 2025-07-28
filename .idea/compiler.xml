@@ -7,20 +7,16 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.38/57f8f5e02e92a30fd21b80cbd426a4172b5f8e29/lombok-1.18.38.jar" />
         </processorPath>
-        <module name="form-start.main" />
+        <module name="com.hello.form-start.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="spring_practice" target="" />
+    <bytecodeTargetLevel target="17">
+      <module name="spring_practice" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="item-service" options="" />
-      <module name="project1" options="" />
-      <module name="servlet" options="" />
       <module name="spring_practice" options="" />
-      <module name="springmvc" options="" />
     </option>
   </component>
 </project>

@@ -2,6 +2,7 @@ package com.hello.formstart.web.form;
 
 import com.hello.formstart.domain.item.Item;
 import com.hello.formstart.domain.item.ItemRepository;
+import com.hello.formstart.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,11 @@ public class FormItemController {
         regions.put("BUSAN", "부산");
         regions.put("JEJU", "제주");
         return regions;
+    }
+
+    @ModelAttribute("itemTypes")
+    public ItemType[] itemTypes() {
+        return ItemType.values(); // ENUM의 모든 정보를 배열로 반환
     }
 
     @GetMapping
