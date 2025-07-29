@@ -11,7 +11,7 @@ public class Item {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "공백은 입력할 수 없습니다.")
     private String itemName;
 
     @NotNull
@@ -24,7 +24,7 @@ public class Item {
 
     public Item() {
     }
-    
+
     public Item(String itemName, Integer price, Integer quantity) {
         this.itemName = itemName;
         this.price = price;
