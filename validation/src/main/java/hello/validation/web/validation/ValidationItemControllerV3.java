@@ -29,13 +29,6 @@ public class ValidationItemControllerV3 {
     private final ItemRepository itemRepository;
     private final ItemValidator itemValidator;
 
-    // 해당 컨트롤러만 Validate 적용
-    @InitBinder
-    public void init(WebDataBinder dataBinder){
-        log.info("init binder {}", dataBinder);
-        dataBinder.addValidators(itemValidator);
-    }
-
     @GetMapping
     public String items(Model model) {
         List<Item> items = itemRepository.findAll();
@@ -57,33 +50,10 @@ public class ValidationItemControllerV3 {
     }
 
     @PostMapping("/add")
-    public String addItemV1(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
-        //검증 오류 결과를 보관
-        Map<String, String> errors = new HashMap<>();
-
-        //핃드 관련 검증 로직(FieldError)
-        if (!StringUtils.hasText(item.getItemName())) {
-            bindingResult.addError(new FieldError("item", "itemName", "상품 이름은 필수 입니다."));
-        }
-        if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
-            bindingResult.addError(new FieldError("item", "price", "가격은 1,000 ~ 1,000,000 까지 허용합니다."));
-        }
-        if (item.getQuantity() == null || item.getQuantity() >= 9999) {
-            bindingResult.addError(new FieldError("item", "quantity", "수량은 최대 9,999 까지 허용합니다."));
-        }
-
-        //특정 필드가 아닌 복합 룰 검증(ObjectError)
-        if (item.getPrice() != null && item.getQuantity() != null) {
-            int resultPrice = item.getPrice() * item.getQuantity();
-            if (resultPrice < 10000) {
-                bindingResult.addError(new ObjectError("item", "가격 * 수량의 합은 10,000원 이상이어야 합니다. 현재 값 = " + resultPrice));
-            }
-        }
-
-        //검증에 실패하면 다시 입력 폼으로
         if (bindingResult.hasErrors()) {
-            log.info("errors = {} ", bindingResult);
+            log.info("errors={}", bindingResult);
             return "validation/v3/addForm";
         }
 
