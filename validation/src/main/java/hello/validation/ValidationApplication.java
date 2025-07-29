@@ -14,8 +14,9 @@ public class ValidationApplication implements WebMvcConfigurer {
 	}
 
 	// 전체 Validate 적용(컨트롤러에서 @InitBinder 부분 제거)
+	/*
 	@Override
 	public Validator getValidator() {
 		return new ItemValidator();
-	}
+	}*/
 }
