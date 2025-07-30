@@ -2,6 +2,8 @@ package hello.login.domain.login;
 
 import hello.login.domain.member.Member;
 import hello.login.web.login.LoginForm;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +26,7 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult) {
+    public String login(@Valid @ModelAttribute LoginForm form, BindingResult bindingResult, HttpServletResponse response) {
         if (bindingResult.hasErrors()) {
             return "login/loginForm";
         }
@@ -37,6 +39,31 @@ public class LoginController {
             return "login/loginForm";
         }
 
+        // 로그인 성공 시 쿠키 저장
+        Cookie idCookie = new Cookie("memberId", String.valueOf(loginMember.getId()));
+        response.addCookie(idCookie);
+
         return "redirect:/";
+    }
+
+
+
+
+
+
+
+
+
+    // 로그아웃
+    @PostMapping("/logout")
+    public String logout(HttpServletResponse response) {
+        expireCookie(response);
+        return "redirect:/";
+    }
+
+    private static void expireCookie(HttpServletResponse response) {
+        Cookie cookie = new Cookie("memberId", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
     }
 }
