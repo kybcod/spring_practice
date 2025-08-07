@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 public class ApiExceptionV2Controller {
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    /*@ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(IllegalArgumentException.class)
     public ErrorResult illegalExHandle(IllegalArgumentException e) {
         log.error("[exceptionHandle] ex", e);
@@ -33,7 +33,7 @@ public class ApiExceptionV2Controller {
     public ErrorResult exHandle(Exception e) {
         log.error("[exceptionHandle] ex", e);
         return new ErrorResult("EX", "내부 오류");
-    }
+    }*/
 
 
     // ModelAndView 를 사용해서 오류 화면(HTML)을 응답하는데 사용할 수도 있다.
